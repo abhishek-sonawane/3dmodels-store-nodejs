@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/96eb6d9ad8.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://checkout.stripe.com/checkout.js" defer></script> -->
+    <script>
+        var stripePublicKey = '<%= stripePublicKey %>'
+        var id = '<%= data.id%>'
+        var title = '<%=data.name%>'
+        var price  = '<%=data.price%>'
+        console.log(id)
+
+    </script>
+    <script defer src="/js/cart.js"></script>
+</head>
+<body id="cart">
+    <div class="main">
+        <div>
+    <img id="cart-img" src="<%=data.coverimg%> " alt="">
+        </div>
+        <div>
+
+            <p><%= data.name %> </p>
+            <p class="price">price: <%- data.price %>$</p>
+            <div>
+            <i class="fa-solid fa-credit-card"></i></div>
+            <button class="order-btn">pay with stripe</button>
+        </div>
+    </div>
+
+    <!-- <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEMS</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">TOTAL</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section> -->
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body style="color: aliceblue;">
+
+
+    <nav>
+        <div class="navbar">
+        <h2><a href="/"><img id="index-headlogo" src="/images/logo.png" alt=""></a></h2>
+        <ul><div class="navbtns">
+            <li><a href="/catalogue">explore</a></li>
+            <li><a href="/catalogue/upload">upload</a></li>
+            <%if (locals.session.isAuth==false) { %>
+            <li><a href="/auth/login">login</a></li>
+            <% }else{ %>
+            <li></form>
+            <form action="/auth/logout" method="post">
+                <button class="logoutbtndetails">logout</button>
+            
+            </form></li>
+              <%}%>
+             </div>  
+        </ul>
+    </div>
+    </nav>
+   
+    <!-- <h2 ><a style="display: inline;" href="/"><img id="headlogo" src="/images/logo.png" alt=""></a></h2> -->
+
+        <!-- <a href="/"><img id="headlogo" src="./images/geometrical-shape.png" alt=""></a>  -->
+   
+    <!-- <img src="/images/Untitled design (2).png" alt=""> -->
+    <!-- <div class="flex-container">
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+    <model-viewer class="model" src="/images/isosphere11.glb" camera-controls ></model-viewer>
+
+</div> -->
+
+<form action="/catalogue" method="get">
+    <div class="search-container">
+        <!-- <h2>search model</h2> -->
+        <div class="searchbox">
+            <!-- <label >title</label> -->
+            <input id="srchbox"  type="text" placeholder="search for 3d models..." name="title"  value="<%= searchOptions.title %>">
+            <button class="srch-submit" type="submit"><img id="srch-img" src="./images/search.png" alt=""></button>
+        </div>
+        <!-- <div>
+        </div> -->
+    </div>
+</form>
+<!-- <form action="/auth/logout" method="post">
+    <button class="logoutbtnct">logout</button>
+
+</form> -->
+<div class="model-container">
+   
+    <% models.forEach(model =>  { %>
+        <div class="cont">
+       <a class="model-link" href="../catalogue/details/<%= model.id %>">
+        <img class="modelcls" src="<%= model.coverImagep %>" ></a>
+        <div class="details-hover">
+            <span><%=model.title%></span> <p><%=model.price%>$</p>
+        </div>
+    </div>
+    <% }) %> 
+</div>
+<br>
+
+
+<!-- <button><a href="/catalogue/upload">upload</a></button> -->
+<div></div>
+
+<!-- <div class="redirec"><button class="login" onclick="window.location.href='http://localhost:5000/auth/login'">click to login</button></div> -->
+</body>
+</html>

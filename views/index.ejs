@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/96eb6d9ad8.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body id="indexpage">
+    
+    <nav>
+        <div class="navbar">
+        <h2><a href="/"><img id="index-headlogo" src="/images/logo.png" alt=""></a></h2>
+        <ul><div class="navbtns">
+            <li><a href="/catalogue">explore</a></li>
+            <li><a href="/catalogue/upload">upload</a></li>
+            <li><a href="#">about</a></li>
+            <%if (!locals.session.isAuth) { %>
+            <li><a href="/auth/login">login</a></li>
+            <% }else{ %>
+            <li></form>
+            <form action="/auth/logout" method="post">
+                <button class="logoutbtndetails">logout</button>
+            
+            </form></li>
+              <%}%>
+             </div>  
+        </ul>
+    </div>
+    </nav>
+
+        <!-- landing page content -->
+        <div class="first-cont">
+            <img src="/images/04.svg" width="300px"  alt="">
+            <p class="index-p">Get the best 3d models for <br> your project</p>
+
+
+        </div>
+
+        <div class="middle-cont">
+            <img id="corner" src="/images/corner.svg" width="200px" alt="">
+            <button id="shopbtn" onclick="window.location.href='http://localhost:5000/catalogue'"><i class="fa-solid fa-cubes"></i> shop</button>
+            <img id="grid" src="/images/grid.svg" width="200px" alt="">
+            
+        </div>
+
+
+
+        <footer class="footer-cont">
+        <!-- <div class="footer-cont"> -->
+            <!-- about section -->
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Aut aliquid, enim modi ducimus velit vitae perferendis animi
+                 eos unde quis sapiente repellat
+            </p> -->
+            <!-- about links  -->
+            <p class="copyright"> © Copyright 2022 Abhishek Sonawane.</p>
+            <div id="social-links">
+               <a href="https://www.github.com/abhishek-sonawane"> <i class="fa-brands fa-github"></i> </a> 
+               <a href=""> <i class="fa-brands fa-linkedin"></i> </a> 
+               <a href="https://twitter.com/realbrownsaiyan"> <i class="fa-brands fa-twitter"></i> </a> 
+            </div>
+        <div class="footstuff">
+           <div id="stripe"> <p>powered by</p> <img id="stripe" src="/images/121212.png" alt=""></div>
+        </div>
+        <!-- </div> -->
+    
+    </footer>
+
+
+</body>
+</html>

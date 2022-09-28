@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: rgb(24, 24, 24);
+    color: azure;
+    height: 100vh;
+}
+
+#detailsimg{
+    max-width: 700px;
+}
+
+.details-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.prod-details{
+    display: flex;
+    flex-direction: column;
+    /* position: relative;
+    left:7em; */
+    margin:0 10em;
+}
+
+.prod-desc{
+    margin: 3em;
+}
+
+#cart-btn{
+    position: absolute;
+    right: 30em;
+}
