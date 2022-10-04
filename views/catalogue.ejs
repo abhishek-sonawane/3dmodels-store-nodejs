@@ -8,6 +8,8 @@
     <script src="/js/script.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body style="color: aliceblue;">
 
@@ -49,39 +51,43 @@
 
 </div> -->
 
-<form action="/catalogue" method="get">
-    <div class="search-container">
-        <!-- <h2>search model</h2> -->
-        <div class="searchbox">
-            <!-- <label >title</label> -->
-            <input id="srchbox"  type="text" placeholder="search for 3d models..." name="title"  value="<%= searchOptions.title %>">
-            <button class="srch-submit" type="submit"><img id="srch-img" src="./images/search.png" alt=""></button>
+<div class="catalogue-container">
+    <form action="/catalogue" method="get">
+        <div class="search-container">
+            <!-- <h2>search model</h2> -->
+            <div class="searchbox">
+                <!-- <label >title</label> -->
+                <input id="srchbox"  type="text" placeholder="search for 3d models..." name="title"  value="<%= searchOptions.title %>">
+                <button class="srch-submit" type="submit"><span class="search-btn-circle-cont">
+                    <i  class="fa-solid fa-magnifying-glass"></i>
+                </span></button>
+            </div>
+            <!-- <div>
+            </div> -->
         </div>
-        <!-- <div>
-        </div> -->
-    </div>
-</form>
-<!-- <form action="/auth/logout" method="post">
-    <button class="logoutbtnct">logout</button>
-
-</form> -->
-<div class="model-container">
-   
-    <% models.forEach(model =>  { %>
-        <div class="cont">
-       <a class="model-link" href="../catalogue/details/<%= model.id %>">
-        <img class="modelcls" src="<%= model.coverImagep %>" ></a>
-        <div class="details-hover">
-            <span><%=model.title%></span> <p><%=model.price%>$</p>
+    </form>
+    <!-- <form action="/auth/logout" method="post">
+        <button class="logoutbtnct">logout</button>
+    
+    </form> -->
+    <div class="model-container">
+       
+        <% models.forEach(model =>  { %>
+            <div class="cont">
+           <a class="model-link" href="../catalogue/details/<%= model.id %>">
+            <img class="modelcls" src="<%= model.coverImagep %>" ></a>
+            <div class="details-hover">
+                <span><h3><%=model.title%></h3></span> <h4><%=model.price%>$</h4>
+            </div>
         </div>
+        <% }) %> 
     </div>
-    <% }) %> 
+    <br>
+    
+    
+    <!-- <button><a href="/catalogue/upload">upload</a></button> -->
+    <div></div>
 </div>
-<br>
-
-
-<!-- <button><a href="/catalogue/upload">upload</a></button> -->
-<div></div>
 
 <!-- <div class="redirec"><button class="login" onclick="window.location.href='http://localhost:5000/auth/login'">click to login</button></div> -->
 </body>
