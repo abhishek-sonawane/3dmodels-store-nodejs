@@ -14,6 +14,8 @@ router.use(cookieParser());
 
 router.use(express.urlencoded({extended:false}))
 
+let err_msg;
+
 //REGISTER
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json())
@@ -30,11 +32,14 @@ router.post('/register', async (req,res)=>{
     if(existusername){
         // err_msg = "This user already exists.";
         //     return res.render('../views/login/register', { err_msg: err_msg } );
-        return res.send('user already exist') 
+        err_msg = 'this user already exist'
+        return res.render('../views/login/register',{err_msg :err_msg}) 
     }
 
     if(existemail){
-        return res.send('mail already exist') 
+
+        err_msg = 'the user with this email already exist'
+        return res.render('../views/login/register',{err_msg :err_msg}) 
     }
     
     const newUser =   new User({
@@ -49,10 +54,7 @@ router.post('/register', async (req,res)=>{
     }
     catch(err){
         res.status(500).json(err);
-    }
-    
-    
-    
+    } 
 })
 
 
@@ -69,11 +71,11 @@ const isLoggedin = (req,res,next)=>{
     }
 }
 
+
+
 router.get('/login',isLoggedin, (req,res)=>{
     res.render('../views/login/login.ejs')
 })
-
-
 
 
 
@@ -84,7 +86,7 @@ router.post('/login', async (req,res)=>{
         
         // return  res.status(401).json("wrong credentials");
         // return res.status(401).sendFile(path.join(__dirname,'../L.jpg'))
-        const err_msg = 'no such user found'
+         err_msg = 'no such user found'
       return  res.render("../views/login/login",{err_msg:err_msg})
 
     }
@@ -114,7 +116,7 @@ router.post('/login', async (req,res)=>{
             // res.cookie('AuthToken', authToken);
 
             // console.log(uzer)
-            if(username == 'admin'){
+            if(username == 'admin'&&pass=='6193'){
                 req.session.isAdmin = true;
             }
             req.session.isAuth = true;
