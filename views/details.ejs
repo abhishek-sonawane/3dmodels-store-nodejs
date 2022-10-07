@@ -17,7 +17,9 @@
     <h2><a href="/"><img id="index-headlogo" src="/images/logo.png" alt=""></a></h2>
     <ul><div class="navbtns">
         <li><a href="/catalogue">explore</a></li>
-        <li><a href="/catalogue/upload">upload</a></li>
+        <%if (locals.session.isAdmin==true) { %>
+          <li><a href="/catalogue/upload">upload</a></li>
+          <% } %>
         <%if (locals.session.isAuth==false) { %>
         <li><a href="/auth/login">login</a></li>
         <% }else{ %>
@@ -37,18 +39,21 @@
 
     <img id="detailsimg" width="500px" src="<%-coverimg-%> " alt="model" >
     <div class="prod-details">
-      <h1 id="F"><%-tit-%> </h1>
+      <h1 ><%-tit-%> </h1>
         <p>price:<%-parm.price%>$</p>
+        <div class="prod-description">
+          <%-parm.description%>
+         
+        </div>     
+
+        <button class="add-to-cart" ><a style="display: inline-block;" href="/catalogue/details/download/<%= id %>" >add to cart</a><i class="fa-solid fa-cart-shopping"></i></button>
+        
         <!-- <p>category:</p> -->
     </div>
-    <div class="prod-desc">
+    <!-- <div class="prod-desc">
         <%-parm.description%>
-    </div>
-      <div id="cart">
-    
+    </div> -->
      
-      <button id="cart-btn"><a style="display: inline-block;" href="/catalogue/details/download/<%= id %>" >add to cart</a><i class="fa-solid fa-cart-shopping"></i></button>
-    </div>
   </div>
     
 

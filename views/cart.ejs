@@ -19,35 +19,23 @@
     <script defer src="/js/cart.js"></script>
 </head>
 <body id="cart">
-    <div class="main">
+    <div class="main-cart">
         <div>
-    <img id="cart-img" src="<%=data.coverimg%> " alt="">
+            <img id="cart-img" width="200" src="<%=data.coverimg%> " alt="">
         </div>
         <div>
 
+           <div class="cart-details">
             <p><%= data.name %> </p>
             <p class="price">price: <%- data.price %>$</p>
+           </div>
             <div>
-            <i class="fa-solid fa-credit-card"></i></div>
+            <!-- <i class="fa-solid fa-credit-card"></i></div> -->
             <button class="order-btn">pay with stripe</button>
         </div>
     </div>
 
-    <!-- <section class="container content-section">
-        <h2 class="section-header">CART</h2>
-        <div class="cart-row">
-            <span class="cart-item cart-header cart-column">ITEMS</span>
-            <span class="cart-price cart-header cart-column">PRICE</span>
-            <span class="cart-quantity cart-header cart-column">TOTAL</span>
-        </div>
-        <div class="cart-items">
-        </div>
-        <div class="cart-total">
-            <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$0</span>
-        </div>
-        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-    </section> -->
+  
 
 
 </body>
