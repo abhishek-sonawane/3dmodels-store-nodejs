@@ -21,7 +21,7 @@ mongoose.connect(mongouri)
 var db = mongoose.connection
 //session store
 const store = new MongoDBStore({
-    uri:mongouri,
+    uri:process.env.MONGODB_CONNECTION_URI,
     collection:'userSessions'
 })
 
