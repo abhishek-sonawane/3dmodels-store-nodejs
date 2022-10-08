@@ -22,7 +22,8 @@ var db = mongoose.connection
 //session store
 const store = new MongoDBStore({
     uri:process.env.MONGODB_CONNECTION_URI,
-    collection:'userSessions'
+    collection:'userSessions',
+    auto_reconnect:true
 })
 
 app.use(express.json())
