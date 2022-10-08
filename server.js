@@ -6,10 +6,11 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const session =require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
+require('dotenv').config();
 // const expressLayouts = require('express-ejs-layouts')
 // const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY )
 
-const mongouri = 'mongodb://127.0.0.1:27017/newdb'
+const mongouri = process.env.MONGODB_CONNECTION_URI
 
 // mongodb connection from mongoose
 mongoose.connect(mongouri)
