@@ -6,6 +6,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const session =require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
+// const expressLayouts = require('express-ejs-layouts')
 // const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY )
 
 const mongouri = 'mongodb://127.0.0.1:27017/newdb'
@@ -46,7 +47,10 @@ app.listen(5000, ()=>{
     console.log("server started on port 5000...")
 })
 
+// layouts
+// app.use(expressLayouts)
 // setting view engine
+// app.set('layout',path.join(__dirname,'views/layouts/header'))
 app.set('views',path.join(__dirname, 'views'));
 app.set('view engine','ejs')
 
@@ -76,9 +80,15 @@ const isAuth = (req,res,next)=>{
 app.use('/catalogue',isAuth, require('./routes/catalogue'))
 
 
+
 app.use('/create-checkout-session',require('./routes/stripeCheckout'))
 
+
 //stripe 
+
+app.use(function(req,res){
+    res.status(404).render('error')
+})
 
 // const storeItems = new Map([
 //     [1, { priceInCents: 10000, name: "Learn React Today" }],

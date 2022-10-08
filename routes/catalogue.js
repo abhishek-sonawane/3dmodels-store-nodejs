@@ -56,27 +56,24 @@ const upload = multer({
 // }
 
 
-
-
-
 //get specific
 router.get('/details/:id', async (req,res)=>{
 
     try {
         let parmid = req.params.id
         let parm = await Productmodel.findById(parmid)
-        let tit = parm.title
+        let title = parm.title
         let pathe = parm.imagePath
         let coverimg = parm.coverImagep
-        let cate = parm.category
-         res.render('details', {tit:tit,image:pathe,coverimg:coverimg,parm:parm,id:parmid,cate:cate})
+        let category = parm.category
+         res.render('details', {title:title,image:pathe,coverImg:coverimg,parm:parm,id:parmid,category:category})
         
     } catch (error) {
         // res.send('<h1>aha wrong route buddy!  try harder next time</h1>')
-        res.sendFile(path.join(__dirname,'../forbidden.jpg'))
+        // res.sendFile(path.join(__dirname,'../forbidden.jpg'))
+        res.render('error')
     }
 })
-
 
 //stripe checkoutpage 
 
@@ -100,8 +97,8 @@ router.get('/details/download/:id',async (req,res)=>{
         
     } catch (error) {
         console.log(error)
-        res.sendFile(path.join(__dirname,'../forbidden.jpg'))
-        
+        // res.sendFile(path.join(__dirname,'../forbidden.jpg'))
+        res.render('error')  
     }
 
  
@@ -200,7 +197,7 @@ async function renderUploadPage(res,productmodel,hasError = false){
                 category:category,
                 productmodel:productmodel
              }
-             if(hasError)params.errorMessage = 'error creating book'||console.log(error)
+             if(hasError)params.errorMessage = 'error creating model'||console.log(error)
             res.render('../views/new_model',params)
          } catch {
             res.redirect('/')

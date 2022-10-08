@@ -13,4 +13,10 @@ router.get('/admin',(req,res)=>{
     res.send('admin dashboard')
 })
 
+// about page
+
+router.get('/about',(req,res)=>{
+    res.render('about',{title:'about'})
+})
+
 module.exports = router

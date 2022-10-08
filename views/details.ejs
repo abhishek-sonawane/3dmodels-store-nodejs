@@ -19,6 +19,7 @@
         <li><a href="/catalogue">explore</a></li>
         <%if (locals.session.isAdmin==true) { %>
           <li><a href="/catalogue/upload">upload</a></li>
+          <li><a href="/about">about</a></li>
           <% } %>
         <%if (locals.session.isAuth==false) { %>
         <li><a href="/auth/login">login</a></li>
@@ -37,9 +38,9 @@
   <!-- <canvas id="bg"></canvas> -->
   <div class="details-container">
 
-    <img id="detailsimg" width="500px" src="<%-coverimg-%> " alt="model" >
+    <img id="detailsimg" width="500px" src="<%-coverImg-%> " alt="model" >
     <div class="prod-details">
-      <h1 ><%-tit-%> </h1>
+      <h1 ><%-title-%> </h1>
         <p>price:<%-parm.price%>$</p>
         <div class="prod-description">
           <%-parm.description%>

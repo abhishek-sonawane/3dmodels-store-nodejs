@@ -1,0 +1,36 @@
+<nav>
+
+    <div class="hamburger-container">
+        <input type="checkbox" name="" id="hamburger-menu" />
+        <div class="hamburger-item"><div></div></div>
+        <div class="hamburger-lists">
+          <ul>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contacts</li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="navbar">
+    <h2><a href="/"><img id="index-headlogo" src="/images/logo.png" alt=""></a></h2>
+    <ul><div class="navbtns">
+        <li><a href="/catalogue">explore</a></li>
+        <%if (locals.session.isAdmin==true) { %>
+          <li><a href="/catalogue/upload">upload</a></li>
+          <% } %>
+        <li><a href="/about">about</a></li>
+        <%if (!locals.session.isAuth) { %>
+        <li><a href="/auth/login">login</a></li>
+        <% }else{ %>
+        <li>
+        <form action="/auth/logout" method="post">
+        <button class="logoutbtndetails">logout</button>
+        </form></li>
+          <%}%>
+         </div>  
+    </ul>
+</div>
+</nav>

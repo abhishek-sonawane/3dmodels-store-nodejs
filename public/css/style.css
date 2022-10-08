@@ -55,7 +55,11 @@ body{
 
 #upload{
     justify-content: flex-start;
-    
+    /* width: 100%; */
+}
+
+.navv{
+    width: 100%;
 }
 
 #login .redirect-auths, #register .redirect-auths{
@@ -147,6 +151,29 @@ button:active{
 #lablem{
     margin-right: 2em;
 }
+
+/* about page */
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container>.about-text{
+    color: #fff;
+    padding: 3em;
+    max-width: 27em;
+
+}
+.about-container a{
+    
+}
+
+.about-container h3{
+    color: #c7c7c7;
+}
+
 
 /*  catalogue pagestyling */
 .model-container{
@@ -480,6 +507,7 @@ box-shadow: 4px 6px 15px 0px rgba(0,0,0,0.75);
     display: flex;
     justify-content:space-between;
     padding: 2em;
+    
 
 }
 
@@ -532,7 +560,7 @@ li a:hover:after{
 }
 .logoutbtndetails:hover{
     background-color: rgb(255, 255, 255);
-    border: transparent;
+    /* border: transparent; */
     color: rgb(0, 0, 0);
 }
 
