@@ -13,8 +13,16 @@ require('dotenv').config();
 const mongouri = process.env.MONGODB_CONNECTION_URI
 
 // mongodb connection from mongoose
+//calling listen only after app is connected to db should work 
 mongoose.connect(mongouri)
-.then(()=>console.log('connected to Database Successfully'))
+.then(()=>{
+    console.log('connected to Database Successfully')
+    app.listen(5000, ()=>{
+        console.log("server started on port 5000...")
+    })
+})
+
+
 .catch((err)=>{
     console.log(err)
 })
@@ -45,9 +53,7 @@ app.use(function(req, res, next) {
     res.locals.session = req.session;
     next();
   });
-app.listen(5000, ()=>{
-    console.log("server started on port 5000...")
-})
+  
 
 // layouts
 // app.use(expressLayouts)

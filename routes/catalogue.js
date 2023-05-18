@@ -122,7 +122,8 @@ router.get('/', async(req,res)=>{
         query = query.regex('title', new RegExp(req.query.title,'i'))
     }
     try{
-        const models = await query.exec()
+        console.log(req.session)
+        const models = await query.exec();
         res.render("../views/catalogue",{
             models : models,
             searchOptions:req.query
